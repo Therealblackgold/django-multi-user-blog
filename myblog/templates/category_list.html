@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog Categories{% endblock %}
+{% block content %}
+<h3 class="userid">Blog Categories</h3>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'myblog/images/w4.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'myblog/images/w5.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'myblog/images/w1.jpg' %}" class="d-block w-100" alt="...">
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+{% for item in cat_menu_list %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h6><a href="{% url 'category' item|slugify %}" class="card-link">{{ item }}</a></h6>
+    </div>
+</div>
+{%  endfor %}
+<br><br>
+<a href="{% url 'home' %}" class="btn btn-secondary btn-sm">Home</a>
+<br><br>
+{% endblock %}

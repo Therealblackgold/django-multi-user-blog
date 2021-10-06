@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<h2 class="userid">PROFILE</h2>
+
+<br>
+<div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-2">
+      <br><br>
+      {% if  page_user.profile_pic %}
+      <img src="{{  page_user.profile_pic.url }}" class="card-img userpic">
+      {% else %}
+      <img src="{% static 'myblog/images/img01.png' %}" class="card-img userpic">
+      {% endif %}
+      <!-- class="card-img"> -->
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{  page_user.user.first_name }}
+          {{  page_user.user.last_name }}
+        </h5>
+        <p class="small text-muted">
+          {% if page_user.website_url %}
+          <a href="{{  page_user.website_url }}">Website</a>
+          {% endif %}
+          {% if  page_user.instagram_url %}
+          | <a href="{{  page_user.instagram_url }}">Instagram</a>
+          {% endif %}
+          {% if  page_user.facebook_url %}
+          | <a href="{{  page_user.facebook_url }}">Facebook</a>
+          {% endif %}
+          {% if  page_user.profile.twitter_url %}
+          | <a href="{{  page_user.twitter_url }}">Twitter</a>
+          {% endif %}
+          {% if  page_user.pintrerest_url %}
+          | <a href="{{  page_user.pintrerest_url }}">Pintrest</a>
+          {% endif %}
+          {% if page_user.youtube_url %}
+          | <a href="{{  page_user.youtube_url }}">Youtube</a>
+          {% endif %}
+        </p>
+        <p class="card-text">{{ page_user.bio }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <img src="{{ post.author.profile.profile_pic.url }}" width="100" height="100" class="rounded-circle"> -->
+<br><br>
+
+
+{% endblock %}

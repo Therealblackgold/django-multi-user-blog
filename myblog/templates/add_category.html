@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create a new Blog Category{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'myblog/images/w4.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'myblog/images/w5.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'myblog/images/w1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+<br><br>
+<hr>
+<div class="col-sm-6 col">
+  <div class="form-group">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-secondary btn-sm">Add Category</button>
+    </form>
+  </div>
+</div>
+<br><br>
+<hr>
+{% else %}
+<h3>OPPS!!! You have to login.</h3>
+{% endif %}
+{% endblock %}

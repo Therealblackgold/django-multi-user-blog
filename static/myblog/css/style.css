@@ -1,0 +1,405 @@
+
+/* NOTES
+color hover #827c3b */
+
+/* Import Fonts & All CSS */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+@import url(bootstrap.min.css);
+@import url(animate.css);
+@import url(default-assets/classy-nav.css);
+@import url(owl.carousel.min.css);
+@import url(magnific-popup.css);
+@import url(font-awesome.min.css);
+@import url(style2.css);
+
+
+.carousel-item img {
+    width: 640px;
+    height: 320px;
+}
+
+.userfont {
+  font-family: 'skywalker demo';
+  src: local('Skywalker free demo'), url('/static/myblog/fonts/Skywalker')
+}
+
+h2,
+h3,
+h5 {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+}
+
+.snip {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+p .details {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 600;
+}
+
+
+nav {
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 600;
+}
+
+a {
+    color: #b0a63f;
+
+}
+
+.jumbotron {
+    background-color: hsla(34, 57%, 70%, 0.753);
+}
+
+body {
+    background-color: #f8f8f8;
+}
+/* **************************************************** */
+.loader {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+/* **************************************************** */
+.dento-btn {
+    position: relative;
+    z-index: 1;
+    min-width: 170px;
+    height: 46px;
+    line-height: 42px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-radius: 2px;
+    background-color: #b0a63f;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    border: 2px solid #b0a63f; }
+    @media only screen and (max-width: 767px) {
+      .dento-btn {
+        min-width: 120px;
+        padding: 0 10px; } }
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      .dento-btn {
+        min-width: 170px;
+        padding: 0 20px; } }
+    .dento-btn.active, .dento-btn:focus, .dento-btn:hover {
+      box-shadow: none;
+      background-color: transparent;
+      color: #b0a63f; }
+    .dento-btn.btn-2:focus, .dento-btn.btn-2:hover {
+      background-color: #ffffff;
+      color: #b0a63f; }
+    .dento-btn.booking-btn {
+      color: #ffffff !important;
+      font-weight: 600;
+      min-width: 140px;
+      height: 40px;
+      line-height: 36px;
+      font-size: 12px; }
+      .dento-btn.booking-btn:focus, .dento-btn.booking-btn:hover {
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #ffffff;
+        color: #b0a63f !important; }
+
+  .header-area {
+    position: relative;
+    z-index: 599;
+    width: 100%;
+    -webkit-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms; }
+    .header-area .main-header-area.sticky {
+      top: 0;
+      width: 100%;
+      position: fixed;
+      background-color: #ffffff;
+      box-shadow: 0 3px 50px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
+      left: 0;
+      z-index: 600; }
+
+  .top-header-area {
+    position: relative;
+    z-index: 1;
+    height: 40px;
+    background-color: #f4f4f4; }
+    .top-header-area .top-header-content a {
+      display: inline-block;
+      font-size: 12px;
+      color: #707070; }
+      .top-header-area .top-header-content a i {
+        color: #b0a63f;
+        margin-right: 5px; }
+      .top-header-area .top-header-content a:last-child {
+        margin-left: 30px; }
+        @media only screen and (max-width: 767px) {
+          .top-header-area .top-header-content a:last-child {
+            margin-left: 15px; } }
+      @media only screen and (max-width: 767px) {
+        .top-header-area .top-header-content a span {
+          display: none; } }
+    .top-header-area .top-header-social-info a {
+      color: #707070;
+      display: inline-block;
+      font-size: 14px;
+      margin-left: 10px; }
+      .top-header-area .top-header-social-info a:focus, .top-header-area .top-header-social-info a:hover {
+        color: #b0a63f; }
+
+
+/* *************************************** */
+.classy-nav-container .classy-navbar .nav-brand {
+    max-width: 150px;
+}
+.classy-nav-container {
+    background-color: transparent; }
+    .classy-nav-container .classy-navbar {
+      height: 90px;
+      padding: 0; }
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .classy-nav-container .classy-navbar {
+          height: 80px; } }
+      @media only screen and (max-width: 767px) {
+        .classy-nav-container .classy-navbar {
+          height: 70px; } }
+      @media only screen and (max-width: 767px) {
+        .classy-nav-container .classy-navbar .nav-brand {
+          max-width: 90px;
+          margin-right: 15px; } }
+      .classy-nav-container .classy-navbar .classynav ul li a {
+        padding: 0 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase; }
+        .classy-nav-container .classy-navbar .classynav ul li a:focus, .classy-nav-container .classy-navbar .classynav ul li a:hover {
+          color: #b0a63f; }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .classy-nav-container .classy-navbar .classynav ul li a {
+            padding: 0 10px;
+            font-size: 13px; } }
+      .classy-nav-container .classy-navbar .classynav ul li.cn-dropdown-item ul li a {
+        font-size: 12px;
+        text-transform: capitalize; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .classy-nav-container .classy-navbar-toggler {
+        -webkit-box-ordinal-group: 200;
+        -ms-flex-order: 199;
+        order: 199; } }
+    @media only screen and (max-width: 767px) {
+      .classy-nav-container .classy-navbar-toggler {
+        -webkit-box-ordinal-group: 200;
+        -ms-flex-order: 199;
+        order: 199;
+        margin-left: 15px; } }
+
+/* **************************************   */
+
+.footer-area {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px; }
+
+  .single-footer-widget {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 100px; }
+    .single-footer-widget .widget-title {
+      color: #ffffff;
+      margin-top: 5px;
+      margin-bottom: 25px;
+      display: block; }
+    .single-footer-widget p {
+      color: #ffffff; }
+    .single-footer-widget .footer-contact {
+      position: relative;
+      z-index: 1; }
+      .single-footer-widget .footer-contact p {
+        margin-bottom: 5px;
+        font-size: 14px; }
+        .single-footer-widget .footer-contact p i {
+          display: inline-block;
+          margin-right: 5px;
+          color: #b0a63f; }
+        .single-footer-widget .footer-contact p:last-child {
+          margin-bottom: 0; }
+    .single-footer-widget .opening-hours {
+      position: relative;
+      z-index: 1; }
+      .single-footer-widget .opening-hours li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        color: #ffffff;
+        margin-bottom: 17px;
+        font-size: 14px; }
+        .single-footer-widget .opening-hours li:last-child {
+          margin-bottom: 0; }
+    .single-footer-widget .quick-links {
+      position: relative;
+      z-index: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .single-footer-widget .quick-links li {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+        width: 50%; }
+        .single-footer-widget .quick-links li a {
+          color: #ffffff;
+          margin-bottom: 17px;
+          display: block; }
+          .single-footer-widget .quick-links li a:focus, .single-footer-widget .quick-links li a:hover {
+            color: #b0a63f; }
+        .single-footer-widget .quick-links li:last-child a {
+          margin-bottom: 0; }
+    .single-footer-widget .footer-newsletter-form {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+      margin-top: 25px; }
+      .single-footer-widget .footer-newsletter-form input {
+        width: 100%;
+        height: 40px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        border: none;
+        font-size: 12px;
+        padding: 0 15px; }
+      .single-footer-widget .footer-newsletter-form button {
+        width: auto;
+        padding: 0 15px;
+        background-color: #b0a63f;
+        color: #ffffff;
+        border: none;
+        border-radius: 0 2px 2px 0;
+        line-height: 40px;
+        height: 40px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        -webkit-transition-duration: 500ms;
+        -o-transition-duration: 500ms;
+        transition-duration: 500ms; }
+        .single-footer-widget .footer-newsletter-form button:focus, .single-footer-widget .footer-newsletter-form button:hover {
+          background-color: #000;
+          color: #ffffff; }
+    .single-footer-widget .footer-social-info a {
+      display: inline-block;
+      color: #ffffff;
+      margin-right: 20px; }
+
+  .copywrite-content {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid #576a7d;
+    padding: 20px 0;
+    text-align: center; }
+    .copywrite-content p {
+      font-size: 12px;
+      color: #b7b7b7;
+      margin-bottom: 0; }
+      .copywrite-content p span {
+        font-weight: 500;
+        color: #ffffff; }
+      .copywrite-content p a {
+        color: #ffffff; }
+
+  .dento-contact-area {
+    position: relative;
+    z-index: 1; }
+    .dento-contact-area .google-maps {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 470px; }
+      @media only screen and (max-width: 767px) {
+        .dento-contact-area .google-maps {
+          height: 280px; } }
+      .dento-contact-area .google-maps iframe {
+        width: 100%;
+        height: 100%;
+        border: none; }
+
+  .contact-information {
+    position: relative;
+    z-index: 1;
+    padding: 30px 50px;
+    background-color: #b0a63f;
+    border-radius: 3px; }
+    @media only screen and (max-width: 767px) {
+      .contact-information {
+        margin-bottom: 100px; } }
+    .contact-information h5 {
+      color: #ffffff; }
+    .contact-information p {
+      color: #ffffff; }
+
+  .contact-form {
+    position: relative;
+    z-index: 1; }
+    .contact-form .form-control {
+      width: 100%;
+      height: 46px;
+      padding: 0 15px;
+      font-size: 13px;
+      font-style: italic; }
+      .contact-form .form-control:focus {
+        box-shadow: none;
+        border-color: #b0a63f; }
+    .contact-form textarea.form-control {
+      height: 110px;
+      padding: 15px; }
+
+  /*# sourceMappingURL=style.css.map */
+
+  @media only screen and (max-width: 767px) {
+    .carousel-item img {
+      height: 120px;
+    }}
+
+    @media only screen and (max-width: 767px) {
+      .userid {
+        font-size: medium;
+      }}
+
+      @media only screen and (max-width: 767px) {
+        .userpic {
+          width: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+        }}

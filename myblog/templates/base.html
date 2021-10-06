@@ -1,0 +1,261 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'myblog/images/side2.png' %}">
+
+
+  <link rel="stylesheet" href="{% static 'myblog/css/style.css' %}">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Roboto:ital,wght@0,300;1,400&family=Zilla+Slab:ital,wght@0,300;1,500;1,600&display=swap"
+    rel="stylesheet">
+
+  <title> {% block title %}My Sidekicks Awesome Blog! {% endblock %}</title>
+</head>
+
+<body>
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area">
+    <!-- Top Header Area -->
+    <div class="top-header-area">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <!-- Top Content -->
+          <div class="col-6 col-md-9 col-lg-8">
+            <div class="top-header-content">
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Cpt|Jhb|Dbn"><i
+                  class="fa fa-map-marker"></i> <span>
+                  Cape Town | Johannesburg | Durban, ZAR</span></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="info.dento@gmail.com"><i
+                  class="fa fa-envelope"></i> <span>sidekicksdev01@gmail.com</span></a>
+            </div>
+          </div>
+          <!-- Top Header Social Info -->
+          <div class="col-6 col-md-3 col-lg-4">
+            <div class="top-header-social-info text-right">
+              <a href="https://www.facebook.com/gauta.ncholo" data-toggle="tooltip" data-placement="bottom"
+                title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
+                  class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google Plus"><i
+                  class="fa fa-google-plus"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Linkedin"><i
+                  class="fa fa-linkedin"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
+                  class="fa fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top Header End -->
+
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+      <div class="classy-nav-container breakpoint-off">
+        <div class="container">
+          <!-- Classy Menu -->
+          <nav class="classy-navbar justify-content-between" id="dentoNav">
+
+            <!-- Logo -->
+            <a class="nav-brand" href="{% url 'home' %}"><img src="{% static 'myblog/images/side0.png' %}" alt=""></a>
+
+
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+
+            <!-- Menu -->
+            <div class="classy-menu">
+
+              <!-- Close Button -->
+              <div class="classycloseIcon">
+                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+
+              <!-- Nav Start -->
+              <div class="classynav">
+                <ul id="nav">
+                  <li><a href="{% url 'home' %}">home</a></li>
+                  <li><a href="{% url 'category-list' %}">Categories</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a href="{% url 'add_category' %}">Add Category</a></li>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                  <li><a href="#">Profile</a>
+                    <ul class="dropdown">
+                      <li><a href="{% url 'edit_profile' %}">Profile Settings</a></li>
+                      {% if  user.profile.id %}
+                      <li><a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a></li>
+                      <li><a href="{% url 'show_profile_page' user.profile.id %}">Profile</a></li>
+                      {% else %}
+                      <li><a href="{% url 'create_profile_page' %}">Create Profile</a></li>
+                      {% endif %}
+                    </ul>
+                  </li>
+                  {% else %}
+                  <li><a href="{% url 'register' %}">Register</a></li>
+                  <li><a href="{% url 'login' %}">Login</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+              <!-- Nav End -->
+            </div>
+
+            <!-- Booking Now Button -->
+            {% if user.is_authenticated %}
+            <a href="{% url 'add_post' %}" class="btn dento-btn booking-btn">Add Post</a>
+            {% else %}
+            <a href="{% url 'register' %}" class="btn dento-btn booking-btn">Register Now</a>
+            {% endif %}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+  <!-- *********** -->
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!-- ***** Footer Area Start ***** -->
+
+  <footer class="footer-area bg-img bg-gradient-overlay"
+    style="background-image: url({% static 'myblog/images/bg.png'%});">
+    <div class="container">
+      <div class="row">
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="single-footer-widget">
+            <a href="{% url 'home' %}" class="d-block mb-4"><img src="{% static 'myblog/images/side0.png' %}"
+                alt=""></a>
+            <p>Etiam sutor risus, dapibus act elefend katen, lacinia sitamet denim. Mauris sagittis kansa interdum
+              dignissim.</p>
+            <div class="footer-contact">
+              <p><i class="icon_pin"></i> 28 Jackson Street, Chicago, 7788569 USA</p>
+              <p><i class="icon_phone"></i> +84. 2252. 2250. 122</p>
+              <p><i class="icon_mail"></i> info.dento@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Opening Hours</h5>
+
+            <!-- Opening Hours -->
+            <ul class="opening-hours">
+              <li><span>Mon-Wed</span> <span>8.00-18.00</span></li>
+              <li><span>Thu-Fri</span> <span>8.00-17.00</span></li>
+              <li><span>Sat</span> <span>9.00-17.00</span></li>
+              <li><span>Sun</span> <span>10.00-17.00</span></li>
+              <li><span>Holiday</span> <span>Closed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Quick Link</h5>
+
+            <!-- Quick Links Nav -->
+            <nav>
+              <ul class="quick-links">
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="{% url 'home' %}">Contact</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Advisors</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Dentist</a></li>
+                <li><a href="{% url 'home' %}">Services</a></li>
+                <li><a href="#">Legals</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg">
+          <div class="single-footer-widget">
+            <!-- Widget Title -->
+            <h5 class="widget-title">Newsletter</h5>
+
+            <p>We will send out weekly newest article and some great offers</p>
+            <!-- Newsletter Form -->
+            <div class="footer-newsletter-form">
+              <form action="#" method="post">
+                <input type="email" name="nl-email" value="" placeholder="Email Address">
+                <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              </form>
+            </div>
+
+            <!-- Social Info -->
+            <div class="footer-social-info">
+              <a href="https://www.facebook.com/gauta.ncholo" data-toggle="tooltip" data-placement="top"
+                title="Facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i
+                  class="fa fa-google-plus"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+              <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i
+                  class="fa fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copywrite Area -->
+  </footer>
+  <!-- ***** Footer Area End ***** -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <!-- **************************** -->
+  <script src="https://kit.fontawesome.com/18e7f92fb6.js" crossorigin="anonymous"></script>
+  <script src=" {% static 'myblog/js/jquery.min.js' %}"></script>
+  <!-- Popper js -->
+  <script src=" {% static 'myblog/js/popper.min.js' %}"></script>
+  <!-- Bootstrap js -->
+  <script src=" {% static 'myblog/js/bootstrap.min.js' %}"></script>
+  <!-- All js -->
+  <script src="{% static 'myblog/js/dento.bundle.js' %}"></script>
+  <!-- Active js -->
+  <script src=" {% static 'myblog/js/default-assets/active.js' %}"></script>
+  <script type="text/javascript">
+    window.addEventListener("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; // class "loader hidden"
+    });
+  </script>
+
+</body>
+
+</html>

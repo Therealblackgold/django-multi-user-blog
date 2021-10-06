@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock %}
+{% block content %}
+<h2 class="userid">{{ profile.user.first_name }}</h2>
+{% if user.is_authenticated %}
+{% if user.id == profile.user.id %}
+<h3 class="userid">Edit Profile</h3>
+<div class="col-sm-6 col">
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary btn-sm">Update</button>
+        </form>
+    </div>
+</div>
+{% else %}
+<h3>OPPS!!! You have to login.</h3>
+{% endif %}
+{% endif %}
+{% endblock %}

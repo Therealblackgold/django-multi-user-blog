@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% if user.is_authenticated %}<h2 class="userfont userid">{{ user.first_name }}'s Home Page</h2><br>
+{% else %}
+<h2 class="userid">New Blogs</h2>
+{% endif %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'myblog/images/w1.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'myblog/images/w2.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'myblog/images/w3.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<hr>
+<ul class="list-unstyled">
+  {% for post in object_list %}
+  <li>
+    <!-- {% if post.header_image %}
+    <div class="card" style="width: 18rem;">
+    <img src="{{ post.header_image.url }}" class="card-img-top">
+    </div>
+    {% endif %} -->
+    <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4 mx-auto headerpic" style="width: 250px;">
+          {% if post.header_image %}
+          <img src="{{ post.header_image.url }}" class="card-img" alt="post">
+          {% else %}
+          <img src="{% static 'myblog/images/author.jpg' %}" class="card-img" alt="post">
+          {% endif %}
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="mx-auto" style="width: 200px;">
+              <a href="{% url 'article-detail' post.pk %}">
+                <h5>{{ post.title|title }}</h5>
+              </a>
+            </div>
+            <div class="mx-auto" style="width: 200px;">
+              <a href="{% url 'category' post.category|slugify %}">
+                <small class="text-muted">
+                  {{ post.category|title  }}
+                </small>
+              </a>
+            </div>
+            {% if post.snippet %}
+            <p class="snip"> {{ post.snippet }}</p>
+            {% else %}
+            {{ post.body|slice:":300"|safe }}
+            {% endif %}
+            <p class="card-text"><small class="text-muted">{{ post.author.first_name }}
+                {{ post.author.last_name }} | {{ post.post_date }}</small></p>
+            <small>{% if user.is_authenticated %}
+              {% if user.id == post.author.id %}
+              <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary btn-sm">Edit</a>
+              <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary btn-sm">Delete</a><br>
+              {% endif %}
+              {% endif %}
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    {% endfor %}
+</ul>
+{% endblock %}
